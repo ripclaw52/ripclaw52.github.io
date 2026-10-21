@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pokemon Capstone Project</title>
+
+  	    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+		>
+	
+    <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    :root { color-scheme: light; --bg: #f6f7fb; --surface: #fff; --text: #20242b; --muted: #5c6470; --accent: #2563eb; --border: #e2e6ee; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    main { width: min(100% - 2rem, 1000px); margin: 2.5rem auto; padding: clamp(1.25rem, 4vw, 3rem); background: var(--surface); border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 8px 28px #1720330d; }
+    h1, h2, h3, h4 { line-height: 1.25; }
+    h1 { margin-top: 0; font-size: clamp(2rem, 5vw, 3rem); }
+    h2 { margin-top: 2.5rem; padding-bottom: .5rem; border-bottom: 1px solid var(--border); }
+    h3 { margin-top: 1.7rem; }
+    p, li { max-width: 78ch; }
+    img { display: block; max-width: 100%; height: auto; border-radius: 8px; margin: 1rem auto 1.5rem; }
+    pre { overflow-x: auto; padding: 1rem; border-radius: 8px; background: #111827; color: #f9fafb; }
+    code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+    :not(pre) > code { padding: .15em .35em; background: #eef2f7; border-radius: 4px; }
+    a { color: var(--accent); }
+    hr { margin: 2rem 0; border: 0; border-top: 1px solid var(--border); }
+    @media (max-width: 600px) { main { width: 100%; margin: 0; border: 0; border-radius: 0; } }
+  </style>
+
+</head>
+<body>
+      <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Ryley Goodine</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#mainNavbar" aria-controls="mainNavbar"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- breadcrumb back to projects.html -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/projects.html">Projects</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Pokemon Capstone Project</li>
+    </ol>
+</nav>
+
+  <main>
+<h1>Pokemon Capstone Project</h1>
+<hr />
+<h2>Project Overview</h2>
+<h3>Pokémon Emerald Recreation (Unity 2D)</h3>
+<p>A solo capstone project recreating core Pokémon Emerald gameplay systems in Unity using C#.
+The project focuses on scalable game architecture, data-driven design, save systems, user interface
+development, and turn-based combat mechanics.</p>
+<h4>Technologies</h4>
+<ul>
+<li>Unity 2021.3</li>
+<li>C#</li>
+<li>Scriptable Objects</li>
+<li>State Stack Architecture</li>
+<li>Binary Save System</li>
+<li>Visual Studio</li>
+<li>Git</li>
+</ul>
+<h4>Project Type</h4>
+<ul>
+<li>University Capstone</li>
+<li>Solo Development</li>
+</ul>
+<h4>Platform</h4>
+<ul>
+<li>Windows PC</li>
+</ul>
+
+<hr />
+<h2>My Responsibilities</h2>
+<p>As the sole developer on this project, I was responsible for:</p>
+<ul>
+<li>Gameplay programming</li>
+<li>Battle system development</li>
+<li>Save/load systems</li>
+<li>User interface implementation</li>
+<li>State machine architecture</li>
+<li>Scriptable Object data design</li>
+<li>Bug fixing and debugging</li>
+<li>Feature design and implementation</li>
+<li>Technical documentation</li>
+</ul>
+
+<hr />
+<h2>Technical Architecture</h2>
+<h4>Engine</h4>
+<p>Unity 2021.3.11f1</p>
+<h4>Language</h4>
+<p>C#</p>
+<h4>Architecture</h4>
+<p>State Stack Architecture</p>
+<h4>Data Layer</h4>
+<p>Scriptable Objects</p>
+<h4>Persistence</h4>
+<p>Binary Save System</p>
+<h4>Why This Architecture?</h4>
+<p>The project separates gameplay into independent states:</p>
+<ul>
+<li>Overworld</li>
+<li>Battle</li>
+<li>Menu</li>
+<li>Cutscene</li>
+</ul>
+<p>The project uses a state-driven architecture to separate gameplay systems such as battles, menus,
+cutscenes, and overworld exploration into isolated game states. This approach improves organization and
+simplifies transitions between gameplay screens. This prevents gameplay systems from becoming tightly coupled and allows new systems to be
+added with minimal impact on existing functionality.</p>
+<p>Scriptable Objects are heavily utilized throughout development to store reusable data such as Pokémon
+species, move definitions, status conditions, type information, and UI references. This allows designers
+to modify gameplay data without directly changing core gameplay scripts.</p>
+
+<hr />
+<h2>Architecture Diagram</h2>
+<pre><code>Game Manager
+│
+├── State Stack
+│   ├── Overworld State
+│   ├── Battle State
+│   ├── Menu State
+│   └── Cutscene State
+│
+├── Scriptable Objects
+│   ├── Pokemon Data
+│   ├── Moves
+│   ├── Types
+│   └── Status Effects
+│
+└── Save System
+    ├── Party Data
+    ├── Pokedex Data
+    └── PC Storage Data
+</code></pre>
+<hr />
+
+<h2>C# Script Screenshots</h2>
+<p><img src="https://cdn.imgchest.com/files/190d65368124.png" alt="Move Selection Script" /></p>
+<p><img src="https://cdn.imgchest.com/files/38322135d261.png" alt="Audio Script" /></p>
+<p><img src="https://cdn.imgchest.com/files/999e8687bc73.png" alt="Battle System Script" /></p>
+<p><img src="https://cdn.imgchest.com/files/b18610f57826.png" alt="Cutscene Script" /></p>
+<p><img src="https://cdn.imgchest.com/files/f48d763a8856.png" alt="Pokemon Base Script" /></p>
+
+<h2>Core Gameplay Systems</h2>
+
+<h3>Overworld Systems</h3>
+<ul>
+<li>Animated player movement</li>
+<li>NPC scripting and cutscenes</li>
+<li>Quest systems</li>
+<li>Wild Pokémon encounters</li>
+<li>Trainer field-of-view battles</li>
+<li>HM abilities such as Surf and Cut</li>
+</ul>
+
+<p><img src="https://cdn.imgchest.com/files/49a5cb194503.png" alt="unity game gameplay" /></p>
+
+<p><img src="https://cdn.imgchest.com/files/718207af2f02.png" alt="unity game menu" /></p>
+
+<h3>Battle Systems</h3>
+<ul>
+<li>Turn-based combat</li>
+<li>Move selection system</li>
+<li>Status conditions</li>
+<li>Experience and leveling</li>
+<li>Bag and party management</li>
+<li>Trainer and wild battles</li>
+</ul>
+
+<p><img src="https://cdn.imgchest.com/files/c7a854961f4b.png" alt="unity game pokemon battle choice" /></p>
+
+<p><img src="https://cdn.imgchest.com/files/1625c6feafdc.png" alt="unity game pokemon battle move" /></p>
+
+<h3>Player Controls</h3>
+<ul>
+<li><strong>Arrow Keys:</strong> Move player and navigate menus</li>
+<li><strong>Z:</strong> Confirm selections and interact</li>
+<li><strong>X:</strong> Cancel or go back</li>
+<li><strong>Enter:</strong> Open menu in overworld</li>
+<li><strong>Shift:</strong> Run feature</li>
+</ul>
+<hr />
+
+<h2>Save and Persistence Systems</h2>
+<ul>
+<li>Save player progress</li>
+<li>Save Pokémon party</li>
+<li>Save PC storage</li>
+<li>Save Pokédex progress</li>
+<li>New game reset support</li>
+<li>Runtime data serialization</li>
+</ul>
+<hr />
+
+<p><img src="https://cdn.imgchest.com/files/b63e5dcbd27c.png" alt="unity editor hometown scene with view of objects" /></p>
+
+<p><img src="https://cdn.imgchest.com/files/5248da753e07.png" alt="unity editor gameplay scene" /></p>
+
+<h2>User Interface Systems</h2>
+<p>Designed menus and HUD elements to better resemble
+Pokémon Emerald, including typography, menu borders, and
+color changing health bars.</p>
+
+<h3>Party Screen</h3>
+<p>Added a dynamic party management interface allowing players to view, switch, and interact with their Pokémon in the party.</p>
+
+<p><img src="https://cdn.imgchest.com/files/f0af92b06b68.png" alt="unity game party" /></p>
+
+<h3>Summary Screen</h3>
+<p>Added a modular Pokémon Summary Screen featuring:</p>
+<ul>
+<li>Pokémon stats</li>
+<li>Move details</li>
+<li>Experience tracking</li>
+<li>Nature information</li>
+<li>Radar graph stat visualization</li>
+</ul>
+
+<p><img src="https://cdn.imgchest.com/files/914166d0dc50.png" alt="unity game pokemon summary cover" /></p>
+
+<p><img src="https://cdn.imgchest.com/files/e5333bddb3e1.png" alt="unity game pokemon summary stats" /></p>
+
+<p><img src="https://cdn.imgchest.com/files/51f713c23d66.png" alt="unity game pokemon summary moves" /></p>
+
+<h3>Pokédex System</h3>
+<p>Implemented a full Pokédex tracking system with encounter states:</p>
+<ul>
+<li>None</li>
+<li>Seen</li>
+<li>Owned</li>
+</ul>
+<p>Includes scrolling lists, Pokémon information pages, and save/load support.</p>
+
+<p><img src="https://cdn.imgchest.com/files/f370c19aacf8.png" alt="unity game pokedex" /></p>
+
+<h3>PC Storage System</h3>
+<p>Added Pokémon storage boxes with drag-and-drop interaction, box customization,
+and binary save support.</p>
+<ul>
+<li>30 Pokémon per box</li>
+<li>Multiple box support</li>
+<li>Virtual mouse integration</li>
+<li>Summary screen access from PC</li>
+</ul>
+
+<p><img src="https://cdn.imgchest.com/files/2f967b4c5a43.png" alt="unity game pc box" /></p>
+
+<h3>Bag System</h3>
+<p>Implemented a bag system allowing players to view, use, and manage items in their inventory.
+Items include:</p>
+<ul>
+<li>Poké Balls</li>
+<li>Potions</li>
+<li>Status-healing items</li>
+<li>Key items</li>
+<li>TM/HM items</li>
+<li>Berry items</li>
+<li>Battle items</li>
+</ul>
+
+<p><img src="https://cdn.imgchest.com/files/7d01e621ff07.png" alt="unity game bag items" /></p>
+<hr />
+
+<h2>Game Environment</h2>
+<h3>Sprites</h3>
+<p>Sprite assets are sourced from Pokémon Emerald sprite
+resources and used for player characters, NPCs, Pokémon,
+menus, and battle scenes.</p>
+
+<p><img src="https://cdn.imgchest.com/files/774330230ca0.png" alt="unity editor pokemon sprite art folder" /></p>
+
+<p><img src="https://cdn.imgchest.com/files/7244ad274725.png" alt="unity editor pokemon sprite art 001 bulbasaur" /></p>
+<h3>Audio</h3>
+<p>Sound effects and music are sourced from Pokémon
+Ruby/Sapphire collections, including move sounds, menu
+audio, and scene music.</p>
+<h3>Textures</h3>
+<p>Tile textures define environmental layers such as grass,
+water, solid objects,foreground, and background rendering.</p>
+<hr />
+
+<h2>Advanced Gameplay Features</h2>
+
+<h3>Advanced Battle Features</h3>
+<h4>Critical Hits</h4>
+<p>Added move-specific critical hit behavior including:</p>
+<ul>
+<li>Always Critical</li>
+<li>High Critical Chance</li>
+<li>Never Critical</li>
+</ul>
+<h4>Recoil Damage</h4>
+<p>Added multiple recoil damage systems:</p>
+<ul>
+<li>Damage-based recoil</li>
+<li>Max HP recoil</li>
+<li>Current HP recoil</li>
+</ul>
+
+<h3>Pokemon Systems</h3>
+<h4>Natures, EVs, and IVs</h4>
+<p>Implemented Pokémon stat systems including:</p>
+<ul>
+<li>25 Pokémon Natures</li>
+<li>Effort Values (EVs)</li>
+<li>Individual Values (IVs)</li>
+<li>Level-up stat scaling</li>
+</ul>
+<p>These advanced systems were implemented to more closely replicate competitive Pokémon mechanics found
+in official games. The combination of Natures, EVs, IVs, recoil systems, and critical-hit behavior
+creates greater variation between Pokémon and introduces more strategic depth during battles.</p>
+
+<h3>Quality of Life Features</h3>
+<h4>Coloured Health Bars</h4>
+<p>Added gradient-based HP bars using Unity gradients. Health bar colours change dynamically
+based on remaining HP percentage.</p>
+<ul>
+<li>Green: 100–51%</li>
+<li>Yellow: 50–21%</li>
+<li>Red: 20–0%</li>
+</ul>
+<h4>Animated Sprites</h4>
+<p>Added animated Pokémon sprites using custom sprite-map
+animation systems within Unity UI image components.</p>
+<h4>Running System</h4>
+<p>Implemented running movement with increased movement
+speed and updatedanimation sets triggered by keyboard or controller input.</p>
+<hr />
+
+<h2>Video Walkthroughs</h2>
+
+<!-- Summary Screen Walkthrough-->
+<div style="padding:74.69% 0 0 0;position:relative;">
+  <iframe src="https://player.vimeo.com/video/1189895320?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+  frameborder="0"
+  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  style="position:absolute;top:0;left:0;width:100%;height:100%;"
+  title="summary_screen_video.mp4">
+</iframe>
+</div>
+<a href="https://vimeo.com/1189895320?fl=tl&amp;fe=ec">link here</a>
+<hr />
+
+<!-- Pokedex Screen Walkthrough -->
+<div style="padding:75.13% 0 0 0;position:relative;">
+  <iframe src="https://player.vimeo.com/video/1189895485?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+  frameborder="0" 
+  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+  referrerpolicy="strict-origin-when-cross-origin" 
+  style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+  title="pokedex_screen_video.mp4">
+</iframe>
+</div>
+<a href="https://vimeo.com/1189895485?fl=tl&amp;fe=ec">link here</a>
+<hr />
+
+<!-- PC Box Screen Walkthrough -->
+<div style="padding:74.81% 0 0 0;position:relative;">
+  <iframe src="https://player.vimeo.com/video/1189895398?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+  frameborder="0" 
+  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
+  referrerpolicy="strict-origin-when-cross-origin" 
+  style="position:absolute;top:0;left:0;width:100%;height:100%;" 
+  title="pc_box_screen_video.mp4">
+</iframe>
+</div>
+<a href="https://vimeo.com/1189895398?fl=tl&amp;fe=ec">link here</a>
+<hr />
+
+<h2>Bug Fixes &amp; Challenges</h2>
+<h3>Health Bar Scaling Issue</h3>
+<p>Problem: Battle UI health bars rendered incorrectly at certain resolutions.</p>
+<p>Solution: Adjusted battle camera configuration and normalized prefab scaling.</p>
+<p>Result: Consistent UI rendering across battle scenes.</p>
+<h3>Animation Array Crash</h3>
+<p>Problem: Missing animation references caused runtime exceptions.</p>
+<p>Solution: Added validation checks during initialization and update cycles.</p>
+<p>Result: Improved system stability and reduced runtime crashes.</p>
+<h3>Pokédex Runtime Persistence Bug</h3>
+<p>Problem: Encounter data was persisting between Unity editor sessions.</p>
+<p>Solution: Created dedicated runtime PokedexObject classes separate from ScriptableObject definitions.</p>
+<p>Result: Player progress correctly resets and loads without affecting source data.</p>
+<hr />
+
+<h2>Future Plans</h2>
+<h3>Battle Features</h3>
+<ul>
+<li>Abilities</li>
+<li>Held Items</li>
+<li>Weather</li>
+<li>Terrain</li>
+<li></li>
+</ul>
+<h3>World Features</h3>
+<ul>
+<li>Gym Battles</li>
+<li>Elite Four</li>
+<li>Story Completion</li>
+<li></li>
+</ul>
+<h3>Expansion Features</h3>
+<ul>
+<li>Additional Generations</li>
+<li>Mega Evolution</li>
+<li>Contest System</li>
+</ul>
+<p>Future development will continue focusing on modularity and scalability so additional Pokémon
+generations, battle mechanics, and story systems can be integrated into the project. Long-term goals
+include recreating the complete Pokémon Emerald experience while supporting expanded post-game and
+multiplayer-inspired systems.</p>
+
+  </main>
+
+
+<footer>
+
+</footer>
+
+	<!-- Bootstrap JavaScript bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://player.vimeo.com/api/player.js"></script>
+
+</body>
+</html>
